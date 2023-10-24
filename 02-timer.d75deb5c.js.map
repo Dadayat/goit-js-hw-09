@@ -1,0 +1,1 @@
+{"mappings":"AACcA,SAASC,cAAc,sBACtBD,SAASC","sources":["src/js/02-timer.js"],"sourcesContent":["const refs = {\n    startBtn: document.querySelector('button[data-start]'),\n    clockface: document.querySelector()\n}"],"names":["document","querySelector"],"version":3,"file":"02-timer.d75deb5c.js.map"}
