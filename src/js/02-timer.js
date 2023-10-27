@@ -5,7 +5,10 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const refs = {
     datetimePicker: document.getElementById('datetime-picker'),
   startBtn: document.querySelector('button[data-start]'),
-    dataClockface: document.querySelectorAll('.timer [data-days], .timer [data-hours], .timer [data-minutes], .timer [data-seconds]'),
+    dataDays: document.querySelector('span[data-days]'),
+  dataHours: document.querySelector('span[data-hours]'),
+  dataMinutes: document.querySelector('span[data-minutes]'),
+  dataSeconds: document.querySelector('span[data-seconds]'),
 }
 
 const options = {
@@ -38,8 +41,13 @@ refs.startBtn.addEventListener("click", () => {
 });
 
 function render(time) {
-  refs.dataClockface.textContent = time;
+  const [days, hours, minutes, seconds] = time.split(":");
+  refs.dataDays.textContent = days;
+  refs.dataHours.textContent = hours;
+  refs.dataMinutes.textContent = minutes;
+  refs.dataSeconds.textContent = seconds;
 }
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
