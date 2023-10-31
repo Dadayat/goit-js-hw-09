@@ -7,8 +7,8 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #4d5e64d5;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #030303;
   line-height: 1.5;
 }
 
@@ -36,4 +36,14 @@ margin-top: 20px;
 .label {
   font-weight: 400px;
   text-transform: uppercase;
+}
+
+.form {
+  display: flex;
+  gap: 15px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
 }
