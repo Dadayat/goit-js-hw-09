@@ -35,14 +35,18 @@ class CountdownTimer {
   }
 
   onClick() {
-    setInterval(() => {
-      const selectedDate = this.picker.selectedDates[0];
-      const counter = selectedDate - new Date();
-      console.log(counter);
-      const time = this.convertMs(counter);
-      this.render(time);
-    }, 1000);
-  }
+  const intervalId = setInterval(() => {
+    const selectedDate = this.picker.selectedDates[0];
+    const counter = selectedDate - new Date();
+    console.log(counter);
+    const time = this.convertMs(counter);
+    this.render(time);
+
+    if (counter <= 0) {
+      clearInterval(intervalId);
+    }
+  }, 1000);
+}
 
   render(time) {
     const [days, hours, minutes, seconds] = time.split(':');
@@ -62,9 +66,9 @@ class CountdownTimer {
     const hours = Math.floor((ms % day) / hour);
     const minutes = Math.floor(((ms % day) % hour) / minute);
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-    return `${this.addLeadingZero(days)}:${this.addLeadingZero(hours)}:${this.addLeadingZero(
-      minutes
-    )}:${this.addLeadingZero(seconds)}`;
+    return `${this.addLeadingZero(days)}:${this.addLeadingZero(
+      hours
+    )}:${this.addLeadingZero(minutes)}:${this.addLeadingZero(seconds)}`;
   }
 
   addLeadingZero(value) {
