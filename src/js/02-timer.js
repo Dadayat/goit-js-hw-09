@@ -44,6 +44,8 @@ class CountdownTimer {
 
     if (counter <= 0) {
       clearInterval(intervalId);
+      this.render("00:00:00:00");
+      return;
     }
   }, 1000);
 }
